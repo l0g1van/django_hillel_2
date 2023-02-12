@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    {% if author.name and author.age %}
+        <font size="+2">
+        Name: {{ author.name }}
+            <br/>
+            <br/>
+        Age: {{ author.age }}
+        </font>
+    {% endif %}
+
+    {% if books %}
+        {% for book in author.book_set %}
+            <p> book </p>
+        {% endfor %}
+    {% else %}
+        <p> This author has written no available books </p>
+    {% endif %}
+
+</body>
+</html>

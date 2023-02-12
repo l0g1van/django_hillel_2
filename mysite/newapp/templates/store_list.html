@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    {% if store_list %}
+        <ul>
+            {% for store in store_list %}
+                <li><a href="{% url 'author_list' %}">{{ store.name }}</a></li>
+            {% endfor %}
+            </ul>
+    {% else %}
+        <p> No store profiles are available </p>
+    {% endif %}
+
+</body>
+</html>
