@@ -9,7 +9,7 @@
     {% if publisher_list %}
         <ul>
             {% for publisher in publisher_list %}
-                <li><a href="{% url 'author_list' %}">{{ publisher.name }}</a></li>
+                <li><a href="{% url 'publisher_details' publisher.pk %}">{{ publisher.name }}</a></li>
             {% endfor %}
             </ul>
     {% else %}

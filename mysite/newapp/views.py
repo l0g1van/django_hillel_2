@@ -42,6 +42,22 @@ class StoreListView(generic.ListView):
 
 def author_details(request, pk):
     author = get_object_or_404(Author, pk=pk)
-    return render(request, 'author_details.html', {'author': author, 'books': author.book_set.all()})
-                  # context={'name': author.name, 'age': author.age, 'books': author.book_set.all()})
+    return render(request, 'author_details.html', {'author': author})
 
+
+def publisher_details(request, pk):
+    publisher = get_object_or_404(Publisher, pk=pk)
+    return render(request, 'publisher_details.html', {'publisher': publisher})
+
+
+def book_details(request, pk):
+    book = get_object_or_404(Book, pk=pk)
+    # get_object_or_404(Book, pk=pk).publisher.name
+    authors = book.authors.all()
+    return render(request, 'book_details.html', {'book': book, 'authors': authors})
+
+
+def store_details(request, pk):
+    store = get_object_or_404(Store, pk=pk)
+    books = Store.objects.prefetch_related('books').get(pk=pk).books.all()
+    return render(request, 'store_details.html', {'store': store, 'books': books})

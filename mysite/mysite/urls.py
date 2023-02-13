@@ -16,7 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from newapp.views import view, author_details, AuthorListView, PublisherListView, BookListView, StoreListView
+from newapp.views import view, author_details, AuthorListView, PublisherListView, BookListView, StoreListView, \
+    publisher_details, book_details, store_details
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,5 +29,8 @@ urlpatterns = [
     path('pyblisher/', PublisherListView.as_view(), name='publisher_list'),
     path('book/', BookListView.as_view(), name='book_list'),
     path('store/', StoreListView.as_view(), name='store_list'),
-    path('author/details/<int:pk>', author_details, name='author_details')
+    path('author/details/<int:pk>', author_details, name='author_details'),
+    path('publisher/details/<int:pk>', publisher_details, name='publisher_details'),
+    path('book/detais/<int:pk>', book_details, name='book_details'),
+    path('store/details/<int:pk>', store_details, name='store_details')
 ]

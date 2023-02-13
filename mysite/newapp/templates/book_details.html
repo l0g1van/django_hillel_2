@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    {% if book.name and book.price and book.pages and book.rating and book.pubdate %}
+        <font size="+2">
+        Name: {{ book.name }}
+        <br/>
+        <br/>
+        Price: ${{ book.price }}
+            <br/>
+        Rating: {{ book.rating }}
+            <br/>
+        Date of publication: {{ book.pubdate }}
+            <br/>
+        Publisher: {{ book.publisher.name }}
+            <br/>
+            <br/>
+        </font>
+    {% endif %}
+
+    {% if authors %}
+        {% for author in authors %}
+            <p> author </p>
+        {% endfor %}
+    {% else %}
+        <p> There are no authors mentioned </p>
+    {% endif %}
+    <br/>
+    <br/>
+    <a href="{% url 'book_list' %}"> <button type="button" class="btn btn-lg">back</button> </a>
+
+</body>
+</html>
