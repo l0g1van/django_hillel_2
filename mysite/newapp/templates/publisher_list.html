@@ -7,6 +7,7 @@
 <body>
 
     {% if publisher_list %}
+        <p> There are {{ publisher_count }} different publishers: </p>
         <ul>
             {% for publisher in publisher_list %}
                 <li><a href="{% url 'publisher_details' publisher.pk %}">{{ publisher.name }}</a></li>

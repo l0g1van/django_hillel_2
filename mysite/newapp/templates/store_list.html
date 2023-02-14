@@ -7,6 +7,7 @@
 <body>
 
     {% if store_list %}
+        <p> There are {{ store_count }} different stores: </p>
         <ul>
             {% for store in store_list %}
                 <li><a href="{% url 'store_details' store.pk %}">{{ store.name }}</a></li>

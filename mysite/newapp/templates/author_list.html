@@ -9,7 +9,7 @@
     {% if author_list %}
         <ul>
             {% for author in author_list %}
-                <li><a href="{% url 'author_details' author.pk %}">{{ author.name }}</a></li>
+                <li><a href="{% url 'author_details' author.pk %}">{{ author.name }},Number of this author is {{ author.pk }} of {{ count }} </a></li>
             {% endfor %}
             </ul>
     {% else %}
