@@ -6,15 +6,20 @@
 </head>
 <body>
 
-    {% if author_list %}
-        <ul>
-            {% for author in author_list %}
-                <li><a href="{% url 'author_details' author.pk %}">{{ author.name }},Number of this author is {{ author.pk }} of {{ count }} </a></li>
-            {% endfor %}
-            </ul>
+    {% if count == 0 %}
+        <p> This authors haven`t published any books yet </p>
     {% else %}
-        <p> No author profiles are available </p>
+        <p> This authors have published {{ count }} </p>
     {% endif %}
+        {% if author_list %}
+            <ul>
+                {% for author in author_list %}
+                    <li><a href="{% url 'author_details' author.pk %}">{{ author.name }} </a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p> No author profiles are available </p>
+        {% endif %}
 
 </body>
 </html>

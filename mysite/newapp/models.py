@@ -8,12 +8,18 @@ class Author(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        default_related_name = 'authors'
+
 
 class Publisher(models.Model):
     name = models.CharField(max_length=300)
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        default_related_name = 'publishers'
 
 
 class Book(models.Model):

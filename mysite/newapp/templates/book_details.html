@@ -13,22 +13,18 @@
         <br/>
         Price: ${{ book.price }}
             <br/>
-        Avg book price: {{ avg }}
-            <br/>
-        Authors number: {{ num_authors }}
-            <br/>
         Rating: {{ book.rating }}
             <br/>
         Date of publication: {{ book.pubdate }}
             <br/>
-        Publisher: {{ book.publisher.name }}
+        Publisher: {{ book.publisher }}
             <br/>
             <br/>
         </font>
     {% endif %}
 
-    {% if authors %}
-        {% for author in authors %}
+    {% if book.authors.all %}
+        {% for author in book.authors.all %}
             <p> author </p>
         {% endfor %}
     {% else %}

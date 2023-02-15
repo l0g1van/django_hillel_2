@@ -18,10 +18,12 @@
         </font>
     {% endif %}
 
-    {% if books %}
-        {% for book in books %}
+    {% if store.books %}
+        <ul>
+        {% for book in store.books.all %}
             <p> {{ book.name }} </p>
         {% endfor %}
+        </ul>
     {% else %}
         <p> There are no books in this store </p>
     {% endif %}
