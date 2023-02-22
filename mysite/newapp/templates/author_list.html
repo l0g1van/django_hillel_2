@@ -5,12 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-
-    {% if count == 0 %}
-        <p> This authors haven`t published any books yet </p>
-    {% else %}
-        <p> This authors have published {{ count }} </p>
-    {% endif %}
+<a href="{% url 'author_create' %}"> create author </a>
         {% if author_list %}
             <ul>
                 {% for author in author_list %}
@@ -21,5 +16,22 @@
             <p> No author profiles are available </p>
         {% endif %}
 
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
 </body>
 </html>

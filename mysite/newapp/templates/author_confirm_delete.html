@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{%block content%}
+<div class="center">
+	<form method="post" class="card">
+		{% csrf_token %}
+		<h2>Delete Author</h2>
+		<p>Are you sure that you want to delete "{{author}}"?</p>
+		<p class="form-buttons">
+			<input type="submit" class="btn btn-primary" value="Delete">
+			<a href="{% url 'author_list'%}" class="btn btn-primary">Cancel</a>
+		</p>
+	</form>
+</div>
+
+{%endblock content%}
+
+</body>
+</html>

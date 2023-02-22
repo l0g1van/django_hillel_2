@@ -6,9 +6,9 @@
 </head>
 <body>
 
+<a href="{% url 'store_create' %}"> create store </a>
     {% if store_list %}
-        <p> There are {{ store_count }} different stores: </p>
-        <ul>
+            <ul>
             {% for store in store_list %}
                 <li><a href="{% url 'store_details' store.pk %}">{{ store.name }}</a></li>
             {% endfor %}
@@ -16,6 +16,24 @@
     {% else %}
         <p> No store profiles are available </p>
     {% endif %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
 
 </body>
 </html>

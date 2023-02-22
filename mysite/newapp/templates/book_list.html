@@ -6,16 +6,30 @@
 </head>
 <body>
 
-    {% if book_list %}
-{#        <p> There are {{ book_count }} different books: </p>#}
-        <ul>
-            {% for book in book_list %}
-                <li><a href="{% url 'book_details' book.pk %}">{{ book.name }} </a></li>
-            {% endfor %}
-            </ul>
-    {% else %}
-        <p> No book profiles are available </p>
-    {% endif %}
+<a href="{% url 'book_create' %}"> create book </a>
+{% for book in book_list %}
+    <p><a href="{% url 'book_details' book.pk %}">{{ book.name }} </a></p>
+{% empty %}
+    <p> No book profiles are available </p>
+{% endfor %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
 
 </body>
 </html>

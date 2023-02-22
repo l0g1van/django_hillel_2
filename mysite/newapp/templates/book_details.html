@@ -32,6 +32,8 @@
     {% endif %}
     <br/>
     <br/>
+    <a href="{% url 'book_update' book.pk %}"> <button type="button" class="btn btn-lg"> update </button> </a>
+    <a href="{%url 'book_delete' book.pk %}"><button type="button" class="btn btn-lg"> delete </button> </a>
     <a href="{% url 'book_list' %}"> <button type="button" class="btn btn-lg">back</button> </a>
 
 </body>

@@ -9,9 +9,6 @@
     {% if store.name %}
         <font size="+2">
         Name: {{ store.name }}
-            <br/>
-            <br/>
-        Number of books: {{ abc }}
         <br/>
         <br/>
         Books:
@@ -29,6 +26,8 @@
     {% endif %}
     <br/>
     <br/>
+    <a href="{% url 'store_update' store.pk %}"> <button type="button" class="btn btn-lg"> update </button> </a>
+    <a href="{%url 'store_delete' store.pk %}"><button type="button" class="btn btn-lg"> delete </button> </a>
     <a href="{% url 'store_list' %}"> <button type="button" class="btn btn-lg">back</button> </a>
 
 </body>

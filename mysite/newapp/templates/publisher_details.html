@@ -7,16 +7,16 @@
 <body>
 
     {% if publisher.name %}
-        <p> This publisher is one of {{ publisher_num }} </p>
+        <p> This publisher is one of {{ publisher.books_count }} </p>
         <font size="+2">
         Name: {{ publisher.name }}
-            <br/>
-        Average price of published books: {{ avg_price_of_published_books }}
             <br/>
         </font>
     {% endif %}
     <br/>
     <br/>
+    <a href="{% url 'publisher_update' publisher.pk %}"> <button type="button" class="btn btn-lg"> update </button> </a>
+    <a href="{%url 'publisher_delete' publisher.pk %}"><button type="button" class="btn btn-lg"> delete </button> </a>
     <a href="{% url 'publisher_list' %}"> <button type="button" class="btn btn-lg">back</button> </a>
 
 </body>

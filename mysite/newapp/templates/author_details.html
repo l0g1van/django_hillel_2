@@ -7,8 +7,6 @@
 <body>
 
     {% if author.name and author.age %}
-        This author is number {{ author.pk }} of {{ author_num }}
-        <br/>
         <font size="+2">
         Name: {{ author.name }}
             <br/>
@@ -26,6 +24,8 @@
     {% endif %}
     <br/>
     <br/>
+    <a href="{% url 'author_update' author.pk %}"> <button type="button" class="btn btn-lg"> update </button> </a>
+    <a href="{%url 'author_delete' author.pk %}"><button type="button" class="btn btn-lg"> delete </button> </a>
     <a href="{% url 'author_list' %}"> <button type="button" class="btn btn-lg">back</button> </a>
 
 </body>
